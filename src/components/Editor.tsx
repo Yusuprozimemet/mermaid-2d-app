@@ -22,10 +22,7 @@ export default function Editor({ onRender2D }: Props) {
                 spellCheck={false}
                 placeholder="Type Mermaid code here..."
             />
-
-            <button onClick={() => onRender2D(code)}>
-                Render Diagram
-            </button>
+            <button onClick={() => onRender2D(code)}>Render Diagram</button>
         </div>
     );
 }

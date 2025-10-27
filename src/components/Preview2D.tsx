@@ -1,14 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import mermaid from "mermaid";
 import svgPanZoom from "svg-pan-zoom";
-import {
-    ArrowsPointingOutIcon,
-    ArrowDownIcon,
-    ArrowUpIcon,
-    ArrowPathIcon,
-    ArrowTopRightOnSquareIcon,
-    ArrowDownOnSquareIcon,
-} from "@heroicons/react/24/solid";
+import Toolbar2D from "./Toolbar2D";
 
 interface Props {
     code: string;
@@ -34,11 +27,8 @@ export default function Preview2D({ code }: Props) {
 
     const fullscreen = () => {
         if (!container.current) return;
-        if (document.fullscreenElement) {
-            document.exitFullscreen();
-        } else {
-            container.current.requestFullscreen();
-        }
+        if (document.fullscreenElement) document.exitFullscreen();
+        else container.current.requestFullscreen();
     };
 
     useEffect(() => {
@@ -46,9 +36,8 @@ export default function Preview2D({ code }: Props) {
 
         mermaid.initialize({
             startOnLoad: false,
-            theme: document.documentElement.classList.contains("dark")
-                ? "dark"
-                : "default",
+            theme:
+                document.documentElement.classList.contains("dark") ? "dark" : "default",
         });
 
         container.current.innerHTML = "";
@@ -63,7 +52,6 @@ export default function Preview2D({ code }: Props) {
                         svgEl.style.height = "100%";
                         svgEl.style.objectFit = "contain";
 
-                        // initialize pan & zoom
                         panZoom?.destroy();
                         const zoomInstance = svgPanZoom(svgEl, {
                             zoomEnabled: true,
@@ -79,37 +67,22 @@ export default function Preview2D({ code }: Props) {
             })
             .catch((err) => {
                 if (container.current) {
-                    container.current.innerHTML = `<p>Error: ${err.message}</p>`;
+                    container.current.innerHTML = `<p style="color:red">Error: ${err.message}</p>`;
                 }
             });
     }, [code]);
 
     return (
-        <div>
-            {/* Floating Toolbar (unstyled) */}
-            <div>
-                <button onClick={() => panZoom?.zoomIn()} title="Zoom In">
-                    <ArrowUpIcon />
-                </button>
-                <button onClick={() => panZoom?.zoomOut()} title="Zoom Out">
-                    <ArrowDownIcon />
-                </button>
-                <button onClick={() => panZoom?.fit()} title="Fit to Screen">
-                    <ArrowsPointingOutIcon />
-                </button>
-                <button onClick={() => panZoom?.resetZoom()} title="Reset Zoom">
-                    <ArrowPathIcon />
-                </button>
-                <button onClick={fullscreen} title="Fullscreen">
-                    <ArrowTopRightOnSquareIcon />
-                </button>
-                <button onClick={downloadSVG} title="Save SVG">
-                    <ArrowDownOnSquareIcon />
-                </button>
-            </div>
-
-            {/* Diagram Container (unstyled) */}
-            <div ref={container} />
+        <div className="preview-wrapper">
+            <Toolbar2D
+                onZoomIn={() => panZoom?.zoomIn()}
+                onZoomOut={() => panZoom?.zoomOut()}
+                onFit={() => panZoom?.fit()}
+                onReset={() => panZoom?.resetZoom()}
+                onFullscreen={fullscreen}
+                onDownload={downloadSVG}
+            />
+            <div className="diagram-container" ref={container}></div>
         </div>
     );
 }

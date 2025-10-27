@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import App from "./App.tsx";
-import "./index.css";
+import './App.scss';
+import './index.scss';
 
 // NOTE: All styling (Tailwind / CSS) has been removed per request.
 

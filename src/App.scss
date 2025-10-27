@@ -1,0 +1,13 @@
+/* All custom styles removed — styling disabled */
+// src/App.scss
+$primary-color: #1e293b;
+
+.app-container {
+    background: $primary-color;
+    color: white;
+
+    .header {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+}

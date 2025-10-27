@@ -1,24 +1,22 @@
 import { useState } from "react";
 import Editor from "./components/Editor";
 import Preview2D from "./components/Preview2D";
+import "./index.scss";
 
 export default function App() {
   const [mermaidCode, setMermaidCode] = useState("");
 
   return (
-    <div>
-      {/* LEFT: Editor */}
-      <div>
-        <h1>Mermaid Editor</h1>
-        <p>Type your Mermaid diagram code and render it in 2D.</p>
+    <div className="app-layout">
+      <aside className="sidebar">
+        <h1>Mermaid Studio</h1>
+        <p>Type your Mermaid diagram below:</p>
         <Editor onRender2D={setMermaidCode} />
-      </div>
+      </aside>
 
-      {/* RIGHT: Preview */}
-      <div>
-        <h2>Preview</h2>
+      <main className="main-preview">
         <Preview2D code={mermaidCode} />
-      </div>
+      </main>
     </div>
   );
 }

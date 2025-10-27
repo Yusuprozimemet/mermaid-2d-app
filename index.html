@@ -6,43 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="Beautiful Mermaid diagram editor with real-time 2D preview and advanced visualization tools" />
-  <meta name="theme-color" content="#667eea" />
+  <meta name="theme-color" content="#2563eb" />
 
   <title>✨ Mermaid Diagram Studio | Interactive Graph Viewer</title>
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
-    rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet" />
 
-  <!-- All inline styles removed -->
-  </head>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a2e0c6e7d2.js" crossorigin="anonymous"></script>
 
-  <body>
-    <!-- Loading Screen (unstyled) -->
-    <div id="loading-screen">
-      <div class="loader"></div>
-    </div>
+  <script type="module" src="/src/main.tsx"></script>
+</head>
 
-    <!-- Decorative Blobs (unstyled) -->
-    <div></div>
-    <div></div>
-    <div></div>
+<body>
+  <div id="loading-screen">
+    <div class="loader"></div>
+  </div>
 
-    <!-- App Root -->
-    <div id="root"></div>
-
-    <script type="module" src="/src/main.tsx"></script>
+  <div id="root"></div>
 
   <script>
-    // Remove loading screen once app loads
-    window.addEventListener('load', () => {
+    window.addEventListener("load", () => {
       setTimeout(() => {
-        const loader = document.getElementById('loading-screen');
+        const loader = document.getElementById("loading-screen");
         if (loader) {
-          loader.classList.add('fade-out');
+          loader.classList.add("fade-out");
           setTimeout(() => loader.remove(), 500);
         }
       }, 300);
