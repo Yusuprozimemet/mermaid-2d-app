@@ -14,60 +14,66 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Mermaid 2D App
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+An interactive web application for editing and rendering Mermaid diagrams in 2D, built with a modern React/TypeScript stack.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Features
+- **Live Mermaid Editor**: Real-time editing and preview of diagrams
+- **2D Diagram Rendering**: Responsive, high-quality visualization
+- **Component-Based Architecture**: Modular, maintainable React components
+- **Modern Tooling**: Vite for fast builds, Tailwind CSS for utility-first styling
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
+```
+├── public/                # Static assets
+├── src/
+│   ├── App.tsx            # Main app component
+│   ├── main.tsx           # Entry point
+│   ├── App.css, index.css # Global styles
+│   ├── components/
+│   │   ├── Editor.tsx     # Mermaid code editor
+│   │   └── Preview2D.tsx  # 2D diagram preview
+│   └── utils/
+│       └── mermaidParser.ts # Mermaid parsing utilities
+├── index.html             # HTML template
+├── package.json           # Project metadata & scripts
+├── vite.config.ts         # Vite configuration
+├── tailwind.config.cjs    # Tailwind CSS config
+├── tsconfig*.json         # TypeScript configs
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Tech Stack
+- **React** (functional components)
+- **TypeScript** (type safety)
+- **Vite** (fast dev/build)
+- **Tailwind CSS** (utility-first CSS)
+- **Mermaid.js** (diagram rendering)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Architecture & Techniques
+- **Separation of Concerns**: UI, logic, and utilities are organized for clarity
+- **Reusable Components**: Editor and Preview2D are decoupled for flexibility
+- **Performance**: Vite enables fast HMR; Tailwind keeps CSS minimal
+- **Extensibility**: Modular design for easy feature addition
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Getting Started
+1. **Install dependencies**
+  ```sh
+  npm install
+  ```
+2. **Run the app**
+  ```sh
+  npm run dev
+  ```
+3. **Build for production**
+  ```sh
+  npm run build
+  ```
+
+## Why This Project?
+- Clean, maintainable, and scalable codebase
+- Demonstrates modern React/TypeScript best practices
+- Focus on developer experience and UI/UX
+
+---
+**Contact:** [Your Name] · [Your Email] · [LinkedIn/GitHub]
