@@ -16,13 +16,13 @@ The React Compiler is not enabled on this template because of its impact on dev 
 If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 # Mermaid 2D App
 
-An interactive web application for editing and rendering Mermaid diagrams in 2D, built with a modern React/TypeScript stack.
+An interactive web application for editing and rendering Mermaid diagrams in 2D, built with React, TypeScript, Vite, and SCSS.
 
 ## Features
 - **Live Mermaid Editor**: Real-time editing and preview of diagrams
 - **2D Diagram Rendering**: Responsive, high-quality visualization
 - **Component-Based Architecture**: Modular, maintainable React components
-- **Modern Tooling**: Vite for fast builds, Tailwind CSS for utility-first styling
+- **Modern Tooling**: Vite for fast builds, SCSS for custom styling
 
 ## Project Structure
 ```
@@ -30,7 +30,7 @@ An interactive web application for editing and rendering Mermaid diagrams in 2D,
 ├── src/
 │   ├── App.tsx            # Main app component
 │   ├── main.tsx           # Entry point
-│   ├── App.css, index.css # Global styles
+│   ├── App.scss, index.scss # Global styles (SCSS)
 │   ├── components/
 │   │   ├── Editor.tsx     # Mermaid code editor
 │   │   └── Preview2D.tsx  # 2D diagram preview
@@ -39,7 +39,6 @@ An interactive web application for editing and rendering Mermaid diagrams in 2D,
 ├── index.html             # HTML template
 ├── package.json           # Project metadata & scripts
 ├── vite.config.ts         # Vite configuration
-├── tailwind.config.cjs    # Tailwind CSS config
 ├── tsconfig*.json         # TypeScript configs
 ```
 
@@ -47,28 +46,28 @@ An interactive web application for editing and rendering Mermaid diagrams in 2D,
 - **React** (functional components)
 - **TypeScript** (type safety)
 - **Vite** (fast dev/build)
-- **Tailwind CSS** (utility-first CSS)
+- **SCSS** (custom, modular styling)
 - **Mermaid.js** (diagram rendering)
 
 ## Architecture & Techniques
 - **Separation of Concerns**: UI, logic, and utilities are organized for clarity
 - **Reusable Components**: Editor and Preview2D are decoupled for flexibility
-- **Performance**: Vite enables fast HMR; Tailwind keeps CSS minimal
+- **Performance**: Vite enables fast HMR; SCSS keeps styles modular and maintainable
 - **Extensibility**: Modular design for easy feature addition
 
 ## Getting Started
 1. **Install dependencies**
-  ```sh
-  npm install
-  ```
+   ```sh
+   npm install
+   ```
 2. **Run the app**
-  ```sh
-  npm run dev
-  ```
+   ```sh
+   npm run dev
+   ```
 3. **Build for production**
-  ```sh
-  npm run build
-  ```
+   ```sh
+   npm run build
+   ```
 
 ## Why This Project?
 - Clean, maintainable, and scalable codebase
