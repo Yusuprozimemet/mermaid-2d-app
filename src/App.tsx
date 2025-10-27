@@ -2,6 +2,8 @@ import { useState } from "react";
 import Editor from "./components/Editor";
 import Preview2D from "./components/Preview2D";
 import "./index.scss";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 export default function App() {
   const [mermaidCode, setMermaidCode] = useState("");
